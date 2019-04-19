@@ -1,5 +1,6 @@
 from Vertex import Vertex
 import random
+import pickle
 
 class Graph:
 
@@ -37,6 +38,13 @@ class Graph:
             if rand <= 0:
                 return key
 
+    def save(self, filename):
+        with open(filename,'wb') as outfile:
+            pickle.dump(dogs_dict,outfile)
+            outfile.close()
+
+
 pot = Graph()
-pot.generate_graph_from_file("data.txt")
+pot.generate_graph_from_file("example_data.txt")
+#pot.save("test.dat")
 print(pot.generate_sentence())
