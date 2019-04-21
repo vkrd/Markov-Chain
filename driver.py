@@ -1,0 +1,12 @@
+from Graph import Graph
+pot = Graph()
+pot.load("shakespeare.dat")
+pot.generate_graph_from_file("shakespeare.txt")
+#pot.save("shakespeare.dat")
+print(pot.generate_sentence())
+print(pot.generate_sentence())
+print(pot.generate_sentence())
+print(pot.generate_sentence())
+print(pot.generate_sentence())
+print(pot.generate_sentence())
+print(pot.generate_sentence())

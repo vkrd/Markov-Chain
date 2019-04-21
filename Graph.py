@@ -22,13 +22,14 @@ class Graph:
         self.generate_graph(text)
 
     def generate_sentence(self):
-        next_word = self.generate_random_word()
+        next_word = "." #self.generate_random_word()
         sentence = ""
-        while next_word != ".":
+        first_run = True
+        while next_word != "." or first_run == True:
+            first_run = False
             sentence += " " + next_word
             next_word = self.nodes[next_word].generate_next_word()
-
-        return sentence + "."
+        return (sentence + " .").replace(" .",".")[2:]
 
 
     def generate_random_word(self):
@@ -40,11 +41,10 @@ class Graph:
 
     def save(self, filename):
         with open(filename,'wb') as outfile:
-            pickle.dump(dogs_dict,outfile)
+            pickle.dump(self.nodes,outfile)
             outfile.close()
 
-
-pot = Graph()
-pot.generate_graph_from_file("example_data.txt")
-#pot.save("test.dat")
-print(pot.generate_sentence())
+    def load(self, filename):
+        with open(filename,'rb') as infile:
+            self.nodes = pickle.load(infile)
+            infile.close()
