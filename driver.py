@@ -1,12 +1,12 @@
 from Graph import Graph
-pot = Graph()
-pot.load("shakespeare.dat")
-pot.generate_graph_from_file("shakespeare.txt")
-#pot.save("shakespeare.dat")
-print(pot.generate_sentence())
-print(pot.generate_sentence())
-print(pot.generate_sentence())
-print(pot.generate_sentence())
-print(pot.generate_sentence())
-print(pot.generate_sentence())
-print(pot.generate_sentence())
+artist = 'searchformeaning'
+load_graph = True
+
+
+graph = Graph()
+if load_graph:
+    graph.load(artist + ".dat")
+else:
+    graph.generate_graph_from_file(artist + ".txt")
+    graph.save(artist + ".dat")
+print(graph.generate_sentence())

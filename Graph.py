@@ -16,13 +16,13 @@ class Graph:
             self.nodes[char].add_node(raw_text[i + 1])
 
     def generate_graph_from_file(self, filename):
-        f = open(filename, "r", encoding="utf8")
+        f = open("data\\" + filename, "r", encoding="utf8")
         text = f.read().replace("\n"," ").replace("\r"," ").replace("."," .").replace("!"," !")
         f.close()
         self.generate_graph(text)
 
     def generate_sentence(self):
-        next_word = "." #self.generate_random_word()
+        next_word = "."
         sentence = ""
         first_run = True
         while next_word != "." or first_run == True:
@@ -40,11 +40,11 @@ class Graph:
                 return key
 
     def save(self, filename):
-        with open(filename,'wb') as outfile:
+        with open("data\\" + filename,'wb') as outfile:
             pickle.dump(self.nodes,outfile)
             outfile.close()
 
     def load(self, filename):
-        with open(filename,'rb') as infile:
+        with open("data\\" + filename,'rb') as infile:
             self.nodes = pickle.load(infile)
             infile.close()
