@@ -1,7 +1,6 @@
 from Graph import Graph
-artist = 'searchformeaning'
-load_graph = True
-
+artist = 'Gosha Dolgun'
+load_graph = False
 
 graph = Graph()
 if load_graph:
