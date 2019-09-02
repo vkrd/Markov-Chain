@@ -1,11 +1,19 @@
 from Graph import Graph
-artist = 'Gosha Dolgun'
+file = 'data/shakespeare'
 load_graph = False
 
 graph = Graph()
+
+
 if load_graph:
-    graph.load(artist + ".dat")
+    # load graph
+    graph.load(file + ".dat")
 else:
-    graph.generate_graph_from_file(artist + ".txt")
-    graph.save(artist + ".dat")
+    # create graph from text file
+    graph.generate_graph_from_file(file + ".txt")
+
+    # save graph
+    graph.save(file + ".dat")
+
+# generate and print an example statement
 print(graph.generate_sentence())
